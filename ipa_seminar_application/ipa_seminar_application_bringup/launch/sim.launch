@@ -30,11 +30,18 @@
 	</group>
 	<node pkg="ipa_seminar_application_bringup" name="fake_gripper" type="fake_gripper.py" />
 
+	<!-- send objects locations to parameter server -->
+	<rosparam command="delete" param="/objects"/>
+	<rosparam command="load" ns="objects" file="$(find ipa_seminar_application_bringup)/config/object_locations.yaml"/>
+	<!--node pkg="cob_bringup_sim" name="spawn_object" type="spawn_object.py" args="all"/-->
+	<node pkg="ipa_seminar_application_bringup" name="area_publisher" type="area_publisher.py"/>
+
 	<!-- move it -->
 	<include file="$(find ipa_seminar_application_bringup)/../ipa_seminar_application_moveit_config_$(arg robot)/launch/move_group.launch" />
 
 	<!-- load default configuration -->
 	<rosparam command="load" ns="/script_server/arm" file="$(find ipa_seminar_application_bringup)/config/arm_joint_configurations_$(arg robot).yaml"/>
+	<rosparam command="load" ns="/script_server/gripper" file="$(find ipa_seminar_application_bringup)/config/gripper_joint_configurations.yaml"/>
 
 	<!-- prepare robot -->
 	<node pkg="ipa_seminar_application_bringup" name="prepare_robot" type="prepare_robot.py" />
