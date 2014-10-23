@@ -1,0 +1,16 @@
+<package>
+  <name>seminar_navigation</name>
+  <version>0.6.0</version>
+  <description>Holds launch files for navigation part of the seminar 'ROS for industrial Applications' at Fraunhofer IPA</description>
+  
+  <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
+
+  <license>LGPL</license>
+
+  <url type="website">https://github.com/ipa320/ipa_seminar</url>
+  <url type="bugtracker">https://github.com/ipa320/ipa_seminar/issues</url>
+
+ 
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
