@@ -30,13 +30,17 @@ To run the real mobile robot make sure you have the "robot flag", that means you
 <a href="#top">top</a> 
 ### 2. Using the mobile robot
 
+To log in to the robot you can always use (raw3-3 is the name of the robot):
+
+	ssh raw3-3-pc1
+
 Start the robot on a terminal:
 
-	roslaunch seminar_navigation robot_bringup.launch
+	roslaunch seminar_navigation robot_bringup.launch (on the robot)
 	
 Now start the prepared rviz configuration to show the current state of the robot.
 
-	roslaunch seminar_navigation rviz_joystick.launch
+	roslaunch seminar_navigation rviz_joystick.launch (on the external pc)
 
 The rviz window should look like this:
 
@@ -60,11 +64,11 @@ You can now move around the robot using the joystick. Use the "deadman" button a
 
 Start the robot on a terminal:
 
-	roslaunch seminar_navigation robot_bringup.launch
+	roslaunch seminar_navigation robot_bringup.launch (on the robot)
 	
 In a second terminal you can start the gmapping localization using:
 
-	roslaunch cob_mapping_slam 2dslam.launch
+	roslaunch cob_mapping_slam 2dslam.launch (on the robot)
 	
 Start rviz config
 
@@ -86,7 +90,7 @@ After initialization of the base (deadman + start) you can move around using the
 
 When finished go into the scenario folder and save the map by running the following commands
 
-	roscd seminar_navi_scenario/map
+	roscd seminar_navi_scenario/map (on the robot)
 	rosrun map_server map_saver
 
 Analyse created files map.yaml and map.pgm.
@@ -96,11 +100,11 @@ Analyse created files map.yaml and map.pgm.
 ### 4. Localizing in the environment
 Start the robot on a terminal:
 
-	roslaunch seminar_navigation robot_bringup.launch
+	roslaunch seminar_navigation robot_bringup.launch (on the robot)
 	
 In a second terminal you can start the amcl with the just created map:
 
-	roslaunch seminar_navigation amcl.launch
+	roslaunch seminar_navigation amcl.launch (on the robot)
 	
 Start rviz config
 
@@ -126,11 +130,11 @@ Analyze tf frames by activating tf plugin. Find and watch frame /map, /odom\_com
 ### 5. Path planning using Elastic Band
 Start the robot on a terminal:
 
-	roslaunch seminar_navigation robot_bringup.launch
+	roslaunch seminar_navigation robot_bringup.launch (on the robot)
 	
 Now start the prepared launch file to start the overall navigation with move_base and amcl:
 
-	roslaunch seminar_navigation navigation_eband.launch
+	roslaunch seminar_navigation navigation_eband.launch (on the robot)
 
 To control the robot we will use RVIZ again:
 
